@@ -1,0 +1,47 @@
+(require 'ert)
+(require 'keyset)
+
+(ert-deftest keyset-test-key-string ()
+  (should (string= (keyset-key-string "a")
+                   "a"))
+  (should (string= (keyset-key-string "a" "b" "c")
+                   "abc"))
+  (should (string= (keyset-key-string 'f11)
+                   "<f11>"))
+  (should (string= (keyset-key-string :A :H :M :s :S :C "x")
+                   "A-H-M-s-S-C-x"))
+  (should (string= (keyset-key-string :A :H :M :s :S :C "x")
+                   (keyset-key-string
+                    :alt :hyper :meta :super :shift :control "x")))
+  (should (string= (keyset-key-string '(:C :M) "x")
+                   "M-C-x"))
+  (should (string= (keyset-key-string :C :C "x")
+                   "C-x")))
+
+(ert-deftest keyset-test-defkey ()
+  (let ((keyset--key-table (make-hash-table)))
+    (keyset-defkey :next      "n")
+    (keyset-defkey :next-line '(:C :next))
+
+    (should (string= (keyset-key-string :next)
+                     "n"))
+    (should (string= (keyset-key-string :next-line)
+                     "C-n"))))
+
+(ert-deftest keyset-test-layout ()
+  (let ((keyset--key-table (make-hash-table))
+        (keyset-layout :default))
+    (keyset-defkey :next-line "C-n")
+    (keyset-defkey :vim-next-line "j" :dvorak "h")
+
+    (should (string= (keyset-key-string :next-line)
+                     "C-n"))
+    (should (string= (keyset-key-string :vim-next-line)
+                     "j"))
+
+    (setq keyset-layout :dvorak)
+
+    (should (string= (keyset-key-string :next-line)
+                     "C-n"))
+    (should (string= (keyset-key-string :vim-next-line)
+                     "h"))))
