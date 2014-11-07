@@ -1,6 +1,7 @@
 # Keyset
 
 A small library for structuring key bindings.
+
 This library provides:
 - abstraction of key sequence
 - changing key sequence by the layout
