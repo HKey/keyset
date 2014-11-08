@@ -6,6 +6,9 @@ before_install:
   - curl -fsSkL https://raw.github.com/rejeep/evm/master/go | bash
   - export PATH="$HOME/.evm/bin:$PATH"
 
+  # install emacs 24
+  - evm install emacs-24.3-bin --use --skip
+
   # install cask
   - curl -fsSkL https://raw.github.com/cask/cask/master/go | python
   - export PATH="$HOME/.cask/bin:$PATH"
