@@ -4,3 +4,6 @@
 
 (depends-on "cl-lib")
 (depends-on "dash")
+
+(development
+ (depends-on "ert-runner"))
