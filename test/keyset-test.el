@@ -45,3 +45,11 @@
                      "C-n"))
     (should (string= (keyset-key-string :vim-next-line)
                      "h"))))
+
+(ert-deftest keyset-test-shift ()
+  (should (string= (keyset-key-string :S "x")
+                   "X"))
+  (should (string= (keyset-key-string :C :S "x")
+                   "S-C-x"))
+  (should (string= (keyset-key-string :H :S "x")
+                   "H-X")))
