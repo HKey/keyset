@@ -119,7 +119,17 @@ Examples:
                   (cond ((modifierp x) (plist-get keyset--modifiers-plist x))
                         ((symbolp x) (format-kbd-macro (vector x)))
                         (x)))
-       (join (separator list) (mapconcat 'identity list separator)))
+       (join (separator list) (mapconcat 'identity list separator))
+       (upcase-maybe (list)
+                     (let ((key (-last-item list)))
+                       (if (and (or (memq :S list) (memq :shift list))
+                                (not (or (memq :C list) (memq :control list)))
+                                (stringp key)
+                                (string-match-p "[a-zA-Z]" key))
+                           (append
+                            (-butlast (-reduce-r 'remq (list :S :shift list)))
+                            (list (upcase key)))
+                         list))))
     (cl-coerce
      (cl-loop for item in (-flatten (-map #'expand params))
               with tmp = nil
@@ -127,7 +137,8 @@ Examples:
               unless (modifierp item)
               collect (aref
                        (edmacro-parse-keys
-                        (join "-" (-map #'to-string (-uniq tmp)))
+                        (join "-"
+                              (-map #'to-string (upcase-maybe (-uniq tmp))))
                         t)
                        0)
               and do (setq tmp nil))
