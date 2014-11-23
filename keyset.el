@@ -3,7 +3,7 @@
 ;; Copyright (C) 2014  Hiroki YAMAKAWA
 
 ;; Author: Hiroki YAMAKAWA <s06139@gmail.com>
-;; Version: 0.1.0
+;; Version: 0.1.1
 ;; Package-Requires: ((dash "2.8.0") (cl-lib "0.5"))
 ;; Keywords:
 
