@@ -78,6 +78,7 @@ NAME is a keyword which does not mean a modifier key.
 LAYOUT is a keyword which is a name of the layout.
 DEFAULT and KEY are a `kbd' style string or a list of arguments
  of `keyset-key'.
+This function returns NAME.
 
 \(fn NAME DEFAULT LAYOUT KEY LAYOUT KEY ...)"
   (setf (gethash name keyset--key-table)
@@ -86,7 +87,8 @@ DEFAULT and KEY are a `kbd' style string or a list of arguments
                  append (list layout
                               (if (stringp key)
                                   (keyset--parse-key-string key)
-                                key)))))
+                                key))))
+  name)
 
 ;;;###autoload
 (defun keyset-key-string (&rest params)
