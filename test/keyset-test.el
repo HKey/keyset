@@ -26,7 +26,9 @@
     (should (string= (keyset-key-string :next)
                      "n"))
     (should (string= (keyset-key-string :next-line)
-                     "C-n"))))
+                     "C-n"))
+
+    (should (eq (keyset-defkey :prev "p") :prev))))
 
 (ert-deftest keyset-test-layout ()
   (let ((keyset--key-table (make-hash-table))
