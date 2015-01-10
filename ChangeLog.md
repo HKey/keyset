@@ -1,6 +1,6 @@
 # keyset ChangeLog
 
-## next version
+## 0.1.2
 
 - `keyset-defkey` returns the key name
 
