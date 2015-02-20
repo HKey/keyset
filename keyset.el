@@ -3,6 +3,7 @@
 ;; Copyright (C) 2014  Hiroki YAMAKAWA
 
 ;; Author: Hiroki YAMAKAWA <s06139@gmail.com>
+;; URL: https://github.com/HKey/keyset
 ;; Version: 0.1.2
 ;; Package-Requires: ((dash "2.8.0") (cl-lib "0.5"))
 ;; Keywords:
