@@ -1,8 +1,8 @@
 # Keyset
 
 [![Build Status](https://travis-ci.org/HKey/keyset.svg?branch=master)](https://travis-ci.org/HKey/keyset)
-[![MELPA](http://melpa.org/packages/keyset-badge.svg)](http://melpa.org/#/keyset)
-[![MELPA Stable](http://stable.melpa.org/packages/keyset-badge.svg)](http://stable.melpa.org/#/keyset)
+[![MELPA](https://melpa.org/packages/keyset-badge.svg)](https://melpa.org/#/keyset)
+[![MELPA Stable](https://stable.melpa.org/packages/keyset-badge.svg)](https://stable.melpa.org/#/keyset)
 
 A small library for structuring key bindings.
 
