@@ -25,8 +25,6 @@ script:
   - emacs --version
   - cask exec ert-runner test/keyset-test.el
 env:
-  - EVM_EMACS=emacs-24.1-travis
-  - EVM_EMACS=emacs-24.2-travis
-  - EVM_EMACS=emacs-24.3-travis
-  - EVM_EMACS=emacs-24.4-travis
   - EVM_EMACS=emacs-24.5-travis
+  - EVM_EMACS=emacs-25.3-travis
+  - EVM_EMACS=emacs-26.3-travis-linux-xenial
